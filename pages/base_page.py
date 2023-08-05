@@ -15,7 +15,10 @@ class BPage:
         self._sign_up_button = page.locator("//a[@ui-sref='app.register']")
 
     def reload(self):
-        self.page.reload(wait_until='load')
+        self.page.reload(wait_until='networkidle')
+
+    def wait_page(self):
+        self.page.wait_for_load_state('networkidle')
 
     def go_back(self):
         self.page.go_back()
@@ -30,11 +33,10 @@ class BPage:
         self._home_button.click()
 
     def open_page(self):
-        self.page.goto(self.base_url, wait_until='load')
+        self.page.goto(self.base_url, wait_until='networkidle')
 
-    def click_login(self):
+    def click_login_in_header(self):
         self._sign_in_button.click()
 
-    def click_sign_up(self):
+    def click_sign_up_in_header(self):
         self._sign_up_button.click()
-

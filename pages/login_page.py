@@ -18,4 +18,4 @@ class LoginPage(SignUpPage):
     def sign_in(self):
         self._email_form.fill('azrlckgi@tcvubciz.com')
         self._password_form.fill('1234Aa')
-        self._sign_button.click()
+        self._sign_up_button.click()

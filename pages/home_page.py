@@ -23,4 +23,3 @@ class HomePage(BPage):
 
     def click_article_author(self, article_title: str):
         self._article_list.locator(f'//h1[text()="{article_title}"]//preceding::a[@class="author ng-binding"]').click()
-

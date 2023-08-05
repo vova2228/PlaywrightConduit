@@ -14,13 +14,10 @@ class SignUpPage(BPage):
         self._username_form = page.locator('[type="text"]')
         self._email_form = page.locator('[type="email"]')
         self._password_form = page.locator('[type="password"]')
-        self._sign_button = page.locator('[type="submit"]')
-
-    def wait_page(self):
-        self.page.wait_for_load_state()
+        self._sign_up_button = page.locator('[type="submit"]')
 
     def open_page(self):
-        self.page.goto(self.base_url, wait_until='load')
+        self.page.goto(self.base_url, wait_until='networkidle')
 
     def fill_username_field(self, username: str):
         self._username_form.fill(username)
@@ -32,4 +29,4 @@ class SignUpPage(BPage):
         self._password_form.fill(password)
 
     def click_sign_up_button(self):
-        self._sign_button.click()
+        self._sign_up_button.click()
