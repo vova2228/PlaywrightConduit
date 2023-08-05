@@ -16,11 +16,20 @@ class SignUpPage(BPage):
         self._password_form = page.locator('[type="password"]')
         self._sign_button = page.locator('[type="submit"]')
 
+    def wait_page(self):
+        self.page.wait_for_load_state()
+
     def open_page(self):
         self.page.goto(self.base_url, wait_until='load')
 
-    def sign_up(self):
-        self._username_form.fill('test')
-        self._email_form.fill('azrlckgi@tcvubciz.com')
-        self._password_form.fill('1234Aa')
+    def fill_username_field(self, username: str):
+        self._username_form.fill(username)
+
+    def fill_email_field(self, email: str):
+        self._email_form.fill(email)
+
+    def fill_password_field(self, password: str):
+        self._password_form.fill(password)
+
+    def click_sign_up_button(self):
         self._sign_button.click()
